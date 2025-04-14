@@ -6,53 +6,55 @@ import ru.netology.stats.StatsService;
 
 public class StatsServiceTest {
     private final StatsService service = new StatsService();
-    int [] stats = { 8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18 };
+    long[] stats = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
 
     @Test
-    public void testAllAmount(){
+    public void testAllAmount() {
 
-        int result = service.getAllAmount( stats );
+        long result = service.getAllAmount(stats);
 
-        Assertions.assertEquals( 180, result );
-    }
-    @Test
-    public void testAverageSalesAmount(){
-
-        int result = service.getAverageSalesAmount( stats );
-
-        Assertions.assertEquals( 15, result );
-
-    }
-    @Test
-    public void testMaxSales(){
-
-        int result = service.maxSales( stats );
-
-        Assertions.assertEquals( 8, result );
+        Assertions.assertEquals(180, result);
     }
 
     @Test
-    public void testMinSales(){
+    public void testAverageSalesAmount() {
 
-        int result = service.minSales( stats );
+        long result = service.getAverageSalesAmount(stats);
 
-        Assertions.assertEquals( 9, result );
+        Assertions.assertEquals(15, result);
 
     }
 
     @Test
-    public void testSalesBelowAverage(){
+    public void testMaxSales() {
 
-        int result = service.getSalesBelowAverage( stats );
+        long result = service.maxSales(stats);
 
-        Assertions.assertEquals( 5, result );
+        Assertions.assertEquals(8, result);
     }
 
     @Test
-    public void testSalesAboveAverage(){
+    public void testMinSales() {
 
-        int result = service.getSalesAboveAverage( stats );
+        long result = service.minSales(stats);
 
-        Assertions.assertEquals( 5, result );
+        Assertions.assertEquals(9, result);
+
+    }
+
+    @Test
+    public void testSalesBelowAverage() {
+
+        long result = service.getSalesBelowAverage(stats);
+
+        Assertions.assertEquals(5, result);
+    }
+
+    @Test
+    public void testSalesAboveAverage() {
+
+        long result = service.getSalesAboveAverage(stats);
+
+        Assertions.assertEquals(5, result);
     }
 }

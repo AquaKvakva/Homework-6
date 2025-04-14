@@ -2,27 +2,30 @@ package ru.netology.stats;
 
 public class StatsService {
 
-    public int getAllAmount( int [] stats ) {
+    private long[] sales;
+
+    public long getAllAmount(long[] stats) {
         int sum = 0;
         for (int i = 0; i < stats.length; i++) {
-            int num = stats[i];
+            long num = stats[i];
             sum += num;
         }
         return sum;
     }
 
-    public int getAverageSalesAmount ( int [] stats ) {
+    public long getAverageSalesAmount(long[] stats) {
         int sum = 0;
         int averageSum = 0;
         for (int i = 0; i < stats.length; i++) {
-            int num = stats[i];
+            long num = stats[i];
             sum += num;
             averageSum = sum / stats.length;
         }
         return averageSum;
     }
 
-    public int maxSales( int [] sales) {
+    public int maxSales(long[] sales) {
+        this.sales = sales;
         int maxMonth = 0;
 
         for (int i = 0; i < sales.length; i++) {
@@ -34,7 +37,7 @@ public class StatsService {
         return maxMonth + 1;
     }
 
-    public int minSales(int[] sales) {
+    public int minSales(long[] sales) {
         int minMonth = 0;
 
         for (int i = 0; i < sales.length; i++) {
@@ -46,23 +49,23 @@ public class StatsService {
         return minMonth + 1;
     }
 
-    public int getSalesBelowAverage ( int [] sales) {
+    public int getSalesBelowAverage(long[] sales) {
         int belowAverage = 0;
-        int averageSum = getAverageSalesAmount( sales ) ;
+        long averageSum = getAverageSalesAmount(sales);
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] > averageSum) {
-                belowAverage ++;
+                belowAverage++;
             }
         }
         return belowAverage;
     }
 
-    public int getSalesAboveAverage( int [] sales) {
+    public int getSalesAboveAverage(long[] sales) {
         int aboveAverage = 0;
-        int averageSum = getAverageSalesAmount( sales ) ;
+        long averageSum = getAverageSalesAmount(sales);
         for (int i = 0; i < sales.length; i++) {
             if (sales[i] < averageSum) {
-                aboveAverage ++;
+                aboveAverage++;
             }
         }
         return aboveAverage;
